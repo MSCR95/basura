@@ -1,0 +1,100 @@
+modificacion Practica 2
+//Rebajar un producto
+
+--cliente--
+------------------------------------------------------------------------------------------------------------------------------
+//añadir un case 10 
+case 10: //Rebajar un producto
+                            if (actual == -1) {
+                                System.out.println("No se ha habierto ningun almacen");
+                            } else {
+                                System.out.print("Codigo del producto a rebajar: ");
+                                codProducto = s.nextLine();
+                                TProducto prodAntes = stub.ObtenerProducto(actual, stub.BuscaProducto(actual, codProducto));
+                                if (prodAntes == null) {
+                                    System.out.print("No se ha encontrado el producto");
+                                } else {
+                                    System.out.print("Reducción (50,5): ");
+                                    float reduccion = s.nextFloat();
+                                    s.nextLine();
+                                    System.out.print("Precio mínimo (10,2): ");
+                                    float minimo = s.nextFloat();
+                                    s.nextLine();
+                                    TProducto prodDespues = stub.ProductoOfertado(actual, codProducto, reduccion, minimo);
+                                    if(prodDespues == null){
+                                        System.out.println("No se ha podido aplicar la oferta");
+                                    }else{
+                                        System.out.println("\nDatos del productos antes de aplicar la oferta:");
+                                        printProducto(prodAntes);
+                                        System.out.println("Datos del productos despues de aplicar la oferta:");
+                                        printProducto(prodDespues);
+                                    }
+                                }
+                            }
+                            break;
+------------------------------------------------------------------------------------------------------------------------------
+//modificar tambien --GestionAlmacenInf--
+------------------------------------------------------------------------------------------------------------------------------
+--GestionAlmacenes--
+ @Override
+    public TProducto ProductoOfertado(int pAlmacen, String pCodProducto, float pReduccion, float pPrecioMinimo) throws RemoteException {
+        int posProducto = BuscarProductoEnAlmacen(pAlmacen, pCodProducto);
+        if (posProducto == -1) {
+            return null;
+        } else {
+            TProducto producto = almacenes.get(pAlmacen).getProductos().get(posProducto);
+            producto.setPrecio(Math.max(producto.getPrecio()*((100f-pReduccion)/100f), pPrecioMinimo));
+            return producto;
+        }
+    }
+------------------------------------------------------------------------------------------------------------------------------
+******************************************************************************************************************************
+------------------------------------------------------------------------------------------------------------------------------
+Modificacion practica 4
+//Eliminar productos caducados
+
+--Cliente--
+//añadir un case 10
+
+ case 10: //Eliminar productos caducados
+                        if(actual == -1) {
+                            Console.WriteLine("No se ha habierto ningun almacen");
+                        } else {
+                            int dia = leerDefectoInt("Caducidad dia", 11);
+                            int mes = leerDefectoInt("Caducidad mes", 6);
+                            int anyo = leerDefectoInt("Caducidad anyo", 2021);
+
+                            int n = stub.EliminarProductosCaducados(actual, dia, mes, anyo);
+                            if(n == -1) {
+                                Console.WriteLine("Error en la operacion");
+                            } else {
+                                Console.WriteLine("Se han eliminado {0} productos caducados.", n);
+                            }
+                        }
+                        break;
+------------------------------------------------------------------------------------------------------------------------------
+//modificar tambien el IGestionAlmacenes
+------------------------------------------------------------------------------------------------------------------------------
+--GestionAlmaccenes--
+public int EliminarProductosCaducados(int pAlmacen, int pDia, int pMes, int pAnio) {
+            int nEliminados = 0;
+
+            if(AlmacenAbierto(pAlmacen)) {
+                int i = 0;
+                List<TProducto> productos = almacenes[pAlmacen].getProductos();
+                while(i < productos.Count()) {
+                    TFecha fecha = productos[i].Caducidad;
+                    if(pAnio > fecha.Anyo || (pAnio == fecha.Anyo && pMes > fecha.Mes) || (pAnio == fecha.Anyo && pMes == fecha.Mes && pDia > fecha.Dia)) {
+                        productos.RemoveAt(i);
+                        nEliminados++;
+                    } else {
+                        i++;
+                    }
+                }
+            } else {
+                nEliminados = -1;
+            }
+
+            return nEliminados;
+        }
+    }
