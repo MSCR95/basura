@@ -1,0 +1,7 @@
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\bin\Debug\ClienteWS.exe.config
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\bin\Debug\ClienteWS.exe
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\bin\Debug\ClienteWS.pdb
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\obj\Debug\ClienteWS.csproj.AssemblyReference.cache
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\obj\Debug\ClienteWS.csproj.CoreCompileInputs.cache
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\obj\Debug\ClienteWS.exe
+C:\Users\maria\source\repos\ClienteWS\ClienteWS\obj\Debug\ClienteWS.pdb

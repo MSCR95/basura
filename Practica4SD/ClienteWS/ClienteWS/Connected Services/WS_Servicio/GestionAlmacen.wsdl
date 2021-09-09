@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionAlmacen" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGestionAlmacen_DatosAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:DatosAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_DatosAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DatosAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_NProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:NProductos" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_NProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_CrearAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_CrearAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AbrirAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbrirAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AbrirAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbrirAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_GuardarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_GuardarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_CerrarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_CerrarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AlmacenAbierto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlmacenAbierto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AlmacenAbierto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlmacenAbiertoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_BuscaProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaProducto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_BuscaProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_ObtenerProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProducto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_ObtenerProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AnadirProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnadirProducto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_AnadirProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnadirProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_ActualizarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_ActualizarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_EliminarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlmacen_EliminarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProductoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGestionAlmacen">
+    <wsdl:operation name="DatosAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/DatosAlmacen" message="tns:IGestionAlmacen_DatosAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/DatosAlmacenResponse" message="tns:IGestionAlmacen_DatosAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/NProductos" message="tns:IGestionAlmacen_NProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/NProductosResponse" message="tns:IGestionAlmacen_NProductos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/CrearAlmacen" message="tns:IGestionAlmacen_CrearAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/CrearAlmacenResponse" message="tns:IGestionAlmacen_CrearAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbrirAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/AbrirAlmacen" message="tns:IGestionAlmacen_AbrirAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/AbrirAlmacenResponse" message="tns:IGestionAlmacen_AbrirAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/GuardarAlmacen" message="tns:IGestionAlmacen_GuardarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/GuardarAlmacenResponse" message="tns:IGestionAlmacen_GuardarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/CerrarAlmacen" message="tns:IGestionAlmacen_CerrarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/CerrarAlmacenResponse" message="tns:IGestionAlmacen_CerrarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlmacenAbierto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/AlmacenAbierto" message="tns:IGestionAlmacen_AlmacenAbierto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/AlmacenAbiertoResponse" message="tns:IGestionAlmacen_AlmacenAbierto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/BuscaProducto" message="tns:IGestionAlmacen_BuscaProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/BuscaProductoResponse" message="tns:IGestionAlmacen_BuscaProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/ObtenerProducto" message="tns:IGestionAlmacen_ObtenerProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/ObtenerProductoResponse" message="tns:IGestionAlmacen_ObtenerProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnadirProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/AnadirProducto" message="tns:IGestionAlmacen_AnadirProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/AnadirProductoResponse" message="tns:IGestionAlmacen_AnadirProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/ActualizarProducto" message="tns:IGestionAlmacen_ActualizarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/ActualizarProductoResponse" message="tns:IGestionAlmacen_ActualizarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlmacen/EliminarProducto" message="tns:IGestionAlmacen_EliminarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlmacen/EliminarProductoResponse" message="tns:IGestionAlmacen_EliminarProducto_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGestionAlmacen" type="tns:IGestionAlmacen">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DatosAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/DatosAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NProductos">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/NProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/CrearAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbrirAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/AbrirAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/GuardarAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarAlmacen">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/CerrarAlmacen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlmacenAbierto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/AlmacenAbierto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaProducto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/BuscaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProducto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/ObtenerProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnadirProducto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/AnadirProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProducto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/ActualizarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <soap:operation soapAction="http://tempuri.org/IGestionAlmacen/EliminarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionAlmacen">
+    <wsdl:port name="BasicHttpBinding_IGestionAlmacen" binding="tns:BasicHttpBinding_IGestionAlmacen">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary1/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
