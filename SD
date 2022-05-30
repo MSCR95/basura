@@ -1,0 +1,50 @@
+ //Eliminar productos caducados
+        public int EliminarProductosCaducados(int pAlmacen, int pDia, int pMes, int pAnnno)
+        {
+            int nEliminados = 0;
+
+            if (pAlmacen >= 0 && almAbiertos.Count > pAlmacen && almAbiertos[pAlmacen].getAlmacenesAbiertos() > 0)
+            {
+                int i = 0;
+                List<TProducto> productos = almAbiertos[pAlmacen].getProductosAlmacen();
+                while(i < productos.Count())
+                {
+                    TFecha fecha = productos[i].Caducidad;
+                    if (pAnnno > fecha.getAnno() || (pAnnno == fecha.getAnno() && pMes > fecha.getMes() || (pAnnno == fecha.getAnno() && pMes == fecha.getMes() && pDia > fecha.getDia())){
+                        productos.RemoveAt(i);
+                        nEliminados++;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+            else
+            {
+                return nEliminados = -1;
+            }
+            return nEliminados;
+        }
+        ------------------------------------------------------------------------------------------
+        
+                 case 10:        //Eliminar productos caducados
+                        if(actual == -1)
+                        {
+                            Console.WriteLine("No se ha abierto ningun almacen");
+                        }
+                        else
+                        {
+                         int diaCad = LeerDefectoInt("Caducidad dia", 11);
+                         int mesCad = LeerDefectoInt("Caducidad mes", 2);
+                         int annoCad = LeerDefectoInt("Caducidad anho", 2021);
+                            int n = servicioProxy.EliminarProductosCaducados(actual,diaCad,mesCad,annoCad);
+                            if (n == -1)
+                            {
+                                Console.WriteLine("Error en la operacion");
+                            }
+                            else {
+                                Console.WriteLine("Se han eliminado {0} productos caducados.", n);
+                            }
+                        }
+                        break;
